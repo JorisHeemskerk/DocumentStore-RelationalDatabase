@@ -1,20 +1,21 @@
 import psycopg2
 
 
-def connectdb():
+def connectdb(host, database, password):
     con = psycopg2.connect(
-        host='localhost',
-        database='test2',
+        host=host,
+        database=database,
         user='postgres',
-        password='uwu'
+        password=password
     )
     return con
 
 def insert(sql):
-    con = connectdb()
+    con = connectdb('localhost', 'test2', 'uwu')
     cur = con.cursor()
-    cur.execute(sql, ('a', 'b'))
+    cur.execute(sql, ('c', 'c'))
     con.commit()
 
 
 sql = 'INSERT INTO "testTable" (var1, var2) VALUES(%s, %s)'
+insert(sql)
