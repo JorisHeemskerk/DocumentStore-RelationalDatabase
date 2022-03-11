@@ -1,28 +1,28 @@
-import psycopg2
-import Connect_db
+import connect_db
 
-con = Connect_db.connectdb('localhost','opisop_sql','password')
+con = connect_db.connectdb('localhost', 'opisop_sql', 'password')
 
-
-def create_table(name, collum_strings):
-    sql_statement = f'CREATE TABLE {name} (' + ','.join(collum_strings) + ')'
+def create_table(name, column_strings):
+    sql_statement = f'CREATE TABLE {name} (' + ','.join(column_strings) + ')'
 
     return sql_statement
 
+def create_column_string(name, type, optional_flags):
+    column_string = f'{name} {type} {optional_flags}'
+    return column_string
 
-def create_colum_string(name, type, etc):
-    collum_string = f'{name} {type} {etc}'
-    return collum_string
+columns = [
+    ['id', 'VARCHAR(32)', 'NOT NULL'],
+    ['name', 'VARCHAR(256)', ''],
+    ['price', 'INT', '']
+]
 
+column_list = []
+for i in columns:
+    column_list.append(create_column_string(i[0], i[1], i[2]))
 
-collums = [['id', 'VARCHAR(32)', 'NOT NULL'],
-           ['name', 'VARCHAR(256)', ''],
-           ['price', 'INT', '']
-           ]
-collum_list = []
-for i in collums:
-    collum_list.append(create_colum_string(i[0], i[1], i[2]))
-sql_statement = create_table('products', collum_list)
+sql_statement = create_table('products', column_list)
+
 cur = con.cursor()
 cur.execute(sql_statement)
 cur.close()
