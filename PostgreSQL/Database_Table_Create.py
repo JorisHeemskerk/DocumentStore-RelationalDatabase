@@ -1,14 +1,14 @@
 import connect_db
 
-con = connect_db.connectdb('localhost','opisop_sql','password')
+con = connect_db.connectdb('localhost', 'opisop_sql', 'password')
 
 def create_table(name, column_strings):
     sql_statement = f'CREATE TABLE {name} (' + ','.join(column_strings) + ')'
 
     return sql_statement
 
-def create_colum_string(name, type, etc):
-    column_string = f'{name} {type} {etc}'
+def create_colum_string(name, type, optional_flags):
+    column_string = f'{name} {type} {optional_flags}'
     return column_string
 
 columns = [
