@@ -1,6 +1,5 @@
 import psycopg2
 
-
 def connectdb(host, database, password):
     con = psycopg2.connect(
         host=host,
