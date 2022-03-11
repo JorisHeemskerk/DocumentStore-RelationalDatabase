@@ -7,7 +7,7 @@ def create_table(name, column_strings):
 
     return sql_statement
 
-def create_colum_string(name, type, optional_flags):
+def create_column_string(name, type, optional_flags):
     column_string = f'{name} {type} {optional_flags}'
     return column_string
 
@@ -19,7 +19,7 @@ columns = [
 
 column_list = []
 for i in columns:
-    column_list.append(create_colum_string(i[0], i[1], i[2]))
+    column_list.append(create_column_string(i[0], i[1], i[2]))
 
 sql_statement = create_table('products', column_list)
 
