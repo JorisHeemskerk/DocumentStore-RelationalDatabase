@@ -14,7 +14,3 @@ def insert(sql):
     cur = con.cursor()
     cur.execute(sql, ('c', 'c'))
     con.commit()
-
-#
-# sql = 'INSERT INTO "testTable" (var1, var2) VALUES(%s, %s)'
-# insert(sql)
