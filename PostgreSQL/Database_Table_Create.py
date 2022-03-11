@@ -1,7 +1,7 @@
 import psycopg2
-from Database_connect import pgadmin
+import Connect_db
 
-con = pgadmin()
+con = Connect_db.connectdb('localhost','opisop_sql','password')
 
 
 def create_table(name, collum_strings):
