@@ -16,8 +16,8 @@ def create_colum_string(name, type, etc):
 
 
 collums = [['id', 'VARCHAR(32)', 'NOT NULL'],
-           ['name', 'VARCHAR(256)', 'NOT NULL'],
-           ['price', 'INT', 'NOT NULL']
+           ['name', 'VARCHAR(256)', ''],
+           ['price', 'INT', '']
            ]
 collum_list = []
 for i in collums:
