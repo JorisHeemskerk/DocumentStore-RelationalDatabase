@@ -10,7 +10,7 @@ def connectdb(host, database, password):
     return con
 
 def insert(sql):
-    con = connectdb('localhost', 'test2', 'uwu')
+    con = connectdb('localhost', 'opisop_sql', 'postgres')
     cur = con.cursor()
     cur.execute(sql, ('c', 'c'))
     con.commit()
