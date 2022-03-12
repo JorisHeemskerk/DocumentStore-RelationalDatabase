@@ -1,20 +1,19 @@
 import psycopg2
 
-def connectdb(host, database, password):
-    con = psycopg2.connect(
+def connectdb(host, database, user, password):
+    """Connect to a PostgreSQL database
+
+    @params
+    host: string of host 
+    database: string of database
+    password: string form of database password
+
+    return: connection
+    """
+    connection = psycopg2.connect(
         host=host,
         database=database,
-        user='postgres',
+        user=user,
         password=password
     )
-    return con
-
-def insert(sql):
-    con = connectdb('localhost', 'opisop_sql', 'postgres')
-    cur = con.cursor()
-    cur.execute(sql, ('c', 'c'))
-    con.commit()
-
-#
-# sql = 'INSERT INTO "testTable" (var1, var2) VALUES(%s, %s)'
-# insert(sql)
+    return connection
