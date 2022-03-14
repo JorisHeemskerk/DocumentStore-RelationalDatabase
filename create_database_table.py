@@ -31,14 +31,22 @@ def create_column_string(name, type, optional_flags):
     return f'{name} {type} {optional_flags}'
 
 def create_columns(columns):
+    """combine singular columns into array of strings
+
+    @params
+    columns: a list of columns, where each column consists of 3 items, not 1 singular string
+
+    return: array of singular comments as strings 
+    """
     column_list = []
     for i in columns:
         column_list.append(create_column_string(i[0], i[1], i[2]))
+    return column_list
 
-
+    
 
 # Use the following line to connect to your PostgreSQL 
-connection = connect.connect_db(host='localhost', database='opisop_sql', user='postgres', password='password')
+connection = connect.connect_db(host='localhost', database='opisop_sql', user='postgres', password='postgres')
 
 # Use the following variable to add all of your required table contents (if no optional flags are wanted, '' is expected to be used)
 columns = [

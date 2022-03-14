@@ -13,7 +13,7 @@ collection = ses.get_collection(database=ses.get_database(client=ses.get_client(
 collection_data = read.get_collection_information(collection=collection, labels=["_id", "name", ["price", "selling_price"]])
 
 # Use the following line to connect to your PostgreSQL 
-connection = connect.connect_db(host='localhost', database='opisop_sql', user='postgres', password='password')
+connection = connect.connect_db(host='localhost', database='opisop_sql', user='postgres', password='postgres')
 cursor = connection.cursor()
 
 for datapoint in collection_data:
