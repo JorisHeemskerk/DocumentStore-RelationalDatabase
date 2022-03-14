@@ -51,6 +51,13 @@ def retrieve_products(connection, product_ids):
     return products
 
 def retrieve_price(connection):
+    """Retrieve price for all products
+    
+    @params
+    connection: A connection to the required database
+    
+    return: array of all product prices
+    """
     cursor = connection.cursor()
     cursor.execute('''SELECT price FROM products;''')
     product_prices = cursor.fetchall()
