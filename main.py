@@ -37,7 +37,7 @@ def average_price(products):
     # implement here
 
 def highest_price_difference_product(connection, product_id):
-"""find product with highest price difference to given product (corresponding to id) 
+    """find product with highest price difference to given product (corresponding to id) 
     
     @params
     connection: A connection to the required database
