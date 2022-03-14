@@ -1,5 +1,5 @@
 def get_item_information(item, labels):
-    """Get array of infromation from given item, based on labels
+    """Get array of information from given item, based on labels
     
     @params
     item: a item of a given mongoDB collection
