@@ -1,5 +1,12 @@
 def get_item_information(item, labels):
-    """Get array of infromation from given item, based on labels"""
+    """Get array of information from given item, based on labels
+    
+    @params
+    item: a item of a given mongoDB collection
+    labels: a list containing the labels of the info looked for in the item
+
+    return: array of information from the item, corresponding to the labels 
+    """
     item_info = []
     for label in labels:
         if isinstance(label, list):
@@ -21,7 +28,14 @@ def get_item_information(item, labels):
     return item_info
 
 def get_collection_information(collection, labels):
-    """Get array of information from collection, based on given list of labels"""
+    """Get array of information from collection, based on given list of labels
+    
+    @params
+    collection: a mongoDB collection
+    labels: a list containing the labels of the info looked for in the item
+
+    return: array of arrays of information from the item, corresponding to the labels 
+    """
     collection_info = []
     for item in collection.find():
         collection_info.append(get_item_information(item, labels))
