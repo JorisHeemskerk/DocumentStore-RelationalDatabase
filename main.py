@@ -5,7 +5,7 @@
 #############################################################################################
 import PostgreSQL.connect_db as connect
 import random
-# random.seed(0)
+random.seed(0)
 
 
 def retrieve_ids(connection):
@@ -70,36 +70,6 @@ def average_price(products):
     for product in products:
         total += product[0][2] #3rd item in product is price
     return total/len(products)
-
-# def highest_price_difference_product(connection, product_id):
-#     """find product with highest price difference to given product (corresponding to id)
-#
-#     @params
-#     connection: A connection to the required database
-#     product_id: id, refering to a product item from datbase
-#
-#     return: the first product with the highest price difference to given product
-#     """
-#     difference = 0
-#     highest_difference_product = None
-#     all_ids = retrieve_ids(connection)
-#     cursor = connection.cursor()
-#     cursor.execute(f"SELECT * from products where id = '{product_id}'")
-#     product = cursor.fetchall()
-#
-#     for i, id in enumerate(all_ids):
-#         percentage = round(i / (len(all_ids) - 1) * 100, 2)
-#         print('Progress: [{}{}{}]  {}%'.format(('=' * int(percentage // 10)), ('>' if percentage < 100 else ''),('.' * int(10 - (((percentage) // 10)) - 1)), percentage))
-#         try:
-#             cursor.execute(f"SELECT * from products where id = '{id[0]}'")
-#             comparative_product = cursor.fetchall()
-#             if abs(product[0][2] - comparative_product[0][2]) > difference:
-#                 difference = abs(product[0][2] - comparative_product[0][2])
-#                 highest_difference_product = comparative_product
-#         except:
-#             continue
-#     cursor.close()
-#     return highest_difference_product
 
 def highest_price_difference_product(connection, product_id):
     """
