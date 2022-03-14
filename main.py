@@ -24,7 +24,12 @@ def retrieve_products(connection, product_ids):
 
     return: array of requested products
     """
-    # implement here
+    products = []
+    cursor = connection.cursor()
+    for id in product_ids:
+        cursor.execute(f"SELECT * from products where id = '{id}'")
+        products.append(cursor.fetchall())
+    return products
 
 def average_price(products):
     """Calculate average price for given array of products
@@ -34,7 +39,10 @@ def average_price(products):
 
     return: average price
     """
-    # implement here
+    total = 0
+    for product in products:
+        total += product[0][2] #3rd item in product is price
+    return total/len(products)
 
 def highest_price_difference_product(connection, product_id):
     """find product with highest price difference to given product (corresponding to id) 
@@ -64,7 +72,8 @@ This implementation is modular, for more information see MongoDB/read_collection
 Formative assignment 2c.2:
 """
 
-products = retrieve_products(connection, ) #TODO: insert array of products (maybe selected at random?)
+products = retrieve_products(connection,["29100","23978","22309"]) #TODO: insert array of products (maybe selected at random?)
+print(products)
 print(f"The average price of the given products is: €{round((average_price(products)/100), 2)}")
 #####################################################################################################################################
 """
