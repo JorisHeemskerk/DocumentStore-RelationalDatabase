@@ -72,8 +72,7 @@ def average_price(products):
     return total/len(products)
 
 def highest_price_difference_product(connection, product_id):
-    """
-    find product with highest price difference to given product (corresponding to id)
+    """Find product with highest price difference to given product (corresponding to id)
     @params
     connection: A connection to the required database
     product_id: id, refering to a product item from datbase
