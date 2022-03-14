@@ -1,5 +1,3 @@
-import session as ses
-
 def get_item_information(item, labels):
     """Get array of infromation from given item, based on labels"""
     item_info = []
@@ -28,7 +26,3 @@ def get_collection_information(collection, labels):
     for item in collection.find():
         collection_info.append(get_item_information(item, labels))
     return collection_info
-
-
-collection = ses.get_collection(ses.get_database(ses.get_client(), "opisop"), "products")
-print(get_collection_information(collection, ["_id", "name", ["price", "selling_price"]]))
