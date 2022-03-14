@@ -129,7 +129,6 @@ print(f"The average price of the given products is: €{round((average_price(pro
 Formative assignment 2c.3:
 """
 random_id = random_product_id(connection,retrieve_ids(connection))
-#random_id = 44076
 
 cursor = connection.cursor()
 cursor.execute(f"SELECT * from products where id = '{random_id}'")
