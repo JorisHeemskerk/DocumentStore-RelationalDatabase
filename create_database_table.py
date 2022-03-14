@@ -4,7 +4,7 @@
 #                                                                   #
 #####################################################################
 
-import connect_db
+import PostgreSQL.connect_db as connect
 
 def create_table(name, column_strings):
     """Create SQL statement for creating a table containing given columns
@@ -38,7 +38,7 @@ def create_columns(columns):
 
 
 # Use the following line to connect to your PostgreSQL 
-connection = connect_db.connectdb(host='localhost', database='opisop_sql', user='postgres', password='password')
+connection = connect.connect_db(host='localhost', database='opisop_sql', user='postgres', password='password')
 
 # Use the following variable to add all of your required table contents (if no optional flags are wanted, '' is expected to be used)
 columns = [

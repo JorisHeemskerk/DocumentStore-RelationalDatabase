@@ -1,6 +1,6 @@
 import psycopg2
 
-def connectdb(host, database, user, password):
+def connect_db(host, database, user, password):
     """Connect to a PostgreSQL database
 
     @params
