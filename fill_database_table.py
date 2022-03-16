@@ -14,7 +14,7 @@ def insert(cursor, table, labels, datapoint):
     
     @params
     cursor: cursor corresponding to required connection
-    table: name of table ti insert into
+    table: name of table to insert into
     labels: list of strings of database labels
     datapoint: list of data that has to be inserted
     """
